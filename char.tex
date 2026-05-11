@@ -1,0 +1,23 @@
+\documentclass{article}
+
+\usepackage{zed-csp}
+
+\title{Char Set}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducing schemas: text editor}
+Declare a basic type: the set of all characters.
+Then make an abbreviation definition to say that a text is a sequence of characters.
+
+\begin{zed}
+[CHAR]
+\end{zed}
+
+\begin{zed}
+    TEXT == \seq CHAR
+\end{zed}
+
+\end{document}
