@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{zed-csp}
+
+\title{State Schema}
+
+\begin{document}
+
+\maketitle
+
+\section{State Schemas}
+We declare variables above the line and constrain their values in the predicate below the line
+The schema box looks different than its axiomatic definition.
+It has a name so that we can refer to its contents just by naming it.
+
+\begin{schema}{Editor}
+    left, right : TEXT
+\where
+    \#(left \cat right) <= maxsize
+\end{schema}
+
+We declare variables above the line and constrain their values in the predicate
+below the line. The schema has a name so we can refer to its by its contents.
+The schema box is closed to remind do you that the variables declared inside
+the box are local. They can only be used in the schema where it was declared.
+
+\end{document}
