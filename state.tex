@@ -25,4 +25,16 @@ below the line. The schema has a name so we can refer to its by its contents.
 The schema box is closed to remind do you that the variables declared inside
 the box are local. They can only be used in the schema where it was declared.
 
+\section{Initializing}
+The $\langle \rangle$ in the predicate is the empty sequence.
+The Init schema includes the Editor schema in its declaration section which
+indicates that all decalrations and predicates in Editor apply to Init as well.
+Init can use the local state variables right and left from Editor.
+
+\begin{schema}{Init}
+    Editor
+    \where
+    left = right = \langle \rangle
+\end{schema}
+
 \end{document}
