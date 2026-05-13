@@ -10,6 +10,25 @@
 \maketitle
 
 \section{Operation Schemas}
+In the example below, Delta Editor tells us that Insert is an operation schema that changes the state of Editor. This operation schema declares the input variable ch? which is the character you just typed. We usually indicate input variables by ending them with ?.\\
+
+
+The predicate tells us how the state changes. The unprimed variables left and right represent the text to the left and right of the cursor before the Insert operation. The primed left and right variables represent changes after the Insert operation.
+
+\begin{schema}{Insert}
+    \Delta Editor \\
+    ch? : CHAR
+\where
+    ch? \in printing \\
+    left' = left \cat \langle ch? \rangle \\
+    right' = right
+\end{schema}
+\\
+\noindent
+$ch? \in printing$ is a precondition which describes what must be true before an operation can occur.\\
+
+\noindent
+The line $right' = right$ states that the text remains unchanged as this is a required in z notation.
 
 \end{document}
 
