@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{zed-csp}
+
+\title{Implicit preconditions}
+
+\begin{document}
+
+\maketitle
+
+\section{Implicit preconditions}
+
+
+\begin{zed}
+    right\_arrow : CHAR
+    \where
+    right\_arrow \notin printing
+\end{zed}
+
+\section {Forward}
+Forward uses the head and tail functions. The predicate states that the forward operation removes the first element from the right and appends it to the end of left.
+
+\begin{schema}{Forward}
+    \Delta Editor \\
+    ch? : CHAR
+    \where
+    ch? = right\_arrow \\
+    left' = left \cat \langle head (right) \rangle \\
+    right' = tail(right)
+\end{schema}
+
+\subsection{What is wrong with forward?}
+It assumes that there is a character on the right. It does not state that the cursor could be at the end of the document.
+
+\subsection{Solution}
+The definition breaks head(right) and tail(right) are not defined when right is empty. This is undefined behavior. The forward operation only makes sense when there is someplace to move forward to. \\
+
+\noindent
+This means forward is a \textit{partial operation} because it only works in some situations. Forward is also an \textit{implicit precondition} because the condition is not written out. \\
+
+An example of a explicit precondition would be:
+\begin{zed}
+ch? \neq \langle \rangle
+\end {zed}
+
+The revised Forward operation with the explicit precondition:
+\begin{schema}{Forward}
+    \Delta Editor \\
+    ch? : CHAR
+    \where
+    ch? = right\_arrow \\
+    right \neq \langle \rangle \\
+    left' = left \cat \langle head (right) \rangle \\
+    right' = tail(right)
+\end{schema}
+
+
+\end{document}
