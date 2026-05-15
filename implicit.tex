@@ -55,5 +55,9 @@ The revised Forward operation with the explicit precondition:
     right' = tail(right)
 \end{schema}
 
+\subsection{Does Insert have any implicit preconditions?}
+Insert performs an operation where a character is inserted to the left and the right remains the same. Are there any situations where a character can't be inserted to the left?
+
+I suppose it always assumes there is avaibility for a character to be inserted to the left. Maybe a left could be an end of file or we need to explicitly state there is something to move left to. We could have reached max size and cannot insert any more characters.
 
 \end{document}

@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{zed-csp}
+
+\title{Schema Calculus}
+
+\begin{document}
+
+\maketitle
+
+\section{Schema Calculus}
+Define a state schema called end of file where the condition is the cursor is at the end of the document.
+
+\begin{schema}{EOF}
+    Editor
+    \where
+    right = \langle \rangle
+\end{schema}
+
+\subsection{Defining RightArrow}
+We define RightArrow so that it can appear in a schema expression that defines the total operation.
+
+\begin{schema}{RightArrow}
+    ch? : CHAR
+    \where
+    ch? = right\_arrow
+\end{schema}
+
+\begin{zed}
+    T\_Forward \widehat{=} Forward \vee (EOF \wedge RightArrow \wedge Editor  )
+\end{zed}
+
+\end{document}
