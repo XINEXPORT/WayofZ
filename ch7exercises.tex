@@ -12,6 +12,29 @@
 \section{Exercise 7.8.1}
 Define the total operations T\_Backward and T\_Delete. You may use any function or operators defined in Appendix D.
 
+\begin{schema}{LeftArrow}
+    chr? : CHAR
+    \where
+    ch? = left\_arrow
+\end{schema}
+
+\begin{schema}{Backward}
+    \Delta Editor \\
+    ch? : CHAR
+    \where
+    ch? = left\_arrow \\
+    right' =  \langle last(left)\rangle \cat right
+    left' = front(left)
+\end{schema}
+
+\begin{zed}
+    T\_Backwards \widehat{=} Backward \vee (LeftArrow \wedge \Xi Editor \wedge left = \langle\rangle)
+\end{zed}
+
+\begin{zed}
+    T\_Delete
+\end{zed}
+
 \section{Exercise 7.8.2}
 Define the operation that handles input characters that are not handled by Insert, Forward, Backward, and Delete.
 
@@ -22,6 +45,6 @@ Our editor would be far more useful it it could read in the contents of a file a
 How many distinct states are described by the Editor schema? The EOF schema? Assume that CHAR is implemented by the ASCII character set.
 
 \section{Exercise 7.8.5}
-Prototype the Insert operation in a functional programming language. Investigate the performance of your prototype on sequences of different sizes. (Hint: The Z operators head, tail, and \cat resemble the Lisp functions car, cdr, and append.)
+Prototype the Insert operation in a functional programming language. Investigate the performance of your prototype on sequences of different sizes. (Hint: The Z operators head, tail, and concatenate resemble the Lisp functions car, cdr, and append.)
 
 \end{document}
