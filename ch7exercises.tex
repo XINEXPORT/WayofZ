@@ -13,7 +13,7 @@
 Define the total operations T\_Backward and T\_Delete. You may use any function or operators defined in Appendix D.
 
 \begin{schema}{LeftArrow}
-    chr? : CHAR
+    ch? : CHAR
     \where
     ch? = left\_arrow
 \end{schema}
@@ -30,6 +30,15 @@ Define the total operations T\_Backward and T\_Delete. You may use any function 
 \begin{zed}
     T\_Backwards \widehat{=} Backward \vee (LeftArrow \wedge \Xi Editor \wedge left = \langle\rangle)
 \end{zed}
+
+\begin{schema}{RightDelete}
+    \Delta Editor \\
+    ch? : CHAR
+    \where
+    ch? = backspace\_key \\
+    right' = tail(right) \\
+    left'= left
+\end{schema}
 
 \begin{zed}
     T\_Delete
