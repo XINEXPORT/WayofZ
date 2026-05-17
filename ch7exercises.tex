@@ -31,17 +31,22 @@ Define the total operations T\_Backward and T\_Delete. You may use any function 
     T\_Backwards \widehat{=} Backward \vee (LeftArrow \wedge \Xi Editor \wedge left = \langle\rangle)
 \end{zed}
 
+\begin{schema}{Backspace}
+    ch? : CHAR
+\where
+    ch? = backspace\_key
+\end{schema}
+
 \begin{schema}{Delete}
     \Delta Editor \\
-    ch? : CHAR
+    Backspace
     \where
-    ch? = backspace\_key \\
     left' = front(left) \\
     right'= right
 \end{schema}
 
 \begin{zed}
-    T\_Delete
+    T\_Delete \widehat{=} Delete \vee (Backspace \wedge \Xi Editor \wedge left = \langle\rangle)
 \end{zed}
 
 \section{Exercise 7.8.2}
