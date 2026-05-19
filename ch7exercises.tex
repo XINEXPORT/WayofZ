@@ -52,6 +52,17 @@ Define the total operations T\_Backward and T\_Delete. You may use any function 
 \section{Exercise 7.8.2}
 Define the operation that handles input characters that are not handled by Insert, Forward, Backward, and Delete.
 
+\begin{schema}{Exception}
+    ch? : CHAR
+    \where
+    ch? \notin printing \\
+    ch? \neq left\_arrow \\
+    ch? \neq right\_arrow \\
+    ch? \neq backspace\_key
+\end{schema}
+
+
+
 \section{Exercise 7.8.3}
 Our editor would be far more useful it it could read in the contents of a file at the user's demand. Model this in Z.
 
