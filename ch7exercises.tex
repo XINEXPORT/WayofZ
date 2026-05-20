@@ -61,10 +61,28 @@ Define the operation that handles input characters that are not handled by Inser
     ch? \neq backspace\_key
 \end{schema}
 
-
-
 \section{Exercise 7.8.3}
 Our editor would be far more useful it it could read in the contents of a file at the user's demand. Model this in Z.
+
+%dom is the domain of a function or relation which establishes a precondition for everything on the left of dom which is f?
+\begin{schema}{OpenFile}
+    f? : \dom files
+\end{schema}
+
+\begin{schema}{ReadContents}
+    \Delta Editor \\
+    OpenFile
+    \where
+    left' = \langle \rangle \\
+    right' = files(f?)
+\end{schema}
+
+\begin{schema}{CloseFile}
+    \Delta Editor \\
+    \where
+    left' = \langle \rangle \\
+    right' = \langle \rangle
+\end{schema}
 
 \section{Exercise 7.8.4}
 How many distinct states are described by the Editor schema? The EOF schema? Assume that CHAR is implemented by the ASCII character set.
